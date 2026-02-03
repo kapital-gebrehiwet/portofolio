@@ -28,9 +28,14 @@ export default function Hero() {
               <button className={styles.btnPrimary} onClick={(e) => scrollToSection(e, 'contacts')}>
                 Get a project
               </button>
-              <button className={styles.btnSecondary}>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.btnSecondary}
+              >
                 My resume
-              </button>
+              </a>
             </div>
           </div>
           <div className={`${styles.heroImageWrapper} ${isVisible ? styles.animateIn : ''}`}>
