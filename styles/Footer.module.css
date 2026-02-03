@@ -1,0 +1,129 @@
+.footer {
+  padding: 3rem 0 2rem;
+  background: radial-gradient(circle at top left, #ff6b35 0%, #0a0e27 35%, #050716 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  max-width: 420px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.tagline {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.socialTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.socialIcons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(10, 14, 39, 0.6);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.socialIcon:hover {
+  transform: translateY(-3px) scale(1.05);
+  border-color: #ff6b35;
+  background: linear-gradient(135deg, #ff6b35, #ff8c55);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.35);
+}
+
+.socialIcon i {
+  font-size: 1.1rem;
+}
+
+.bottomRow {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.copy {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .topRow {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .brand {
+    max-width: 100%;
+  }
+
+  .socialIcons {
+    justify-content: flex-start;
+  }
+}
+
+:global(body.light) .footer {
+  background: radial-gradient(circle at top left, #ffcfb3 0%, #f5f7ff 35%, #dde3ff 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+:global(body.light) .tagline,
+:global(body.light) .copy {
+  color: rgba(10, 14, 39, 0.7);
+}
+
+:global(body.light) .socialTitle {
+  color: rgba(10, 14, 39, 0.9);
+}
+
+:global(body.light) .socialIcon {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(10, 14, 39, 0.1);
+  color: #0a0e27;
+}
+

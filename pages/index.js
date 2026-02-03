@@ -6,6 +6,7 @@ import About from '../components/About'
 import Projects from '../components/Projects'
 import Contact from '../components/Contact'
 import Chatbot from '../components/Chatbot'
+import Footer from '../components/Footer'
 
 export default function Home({ theme, toggleTheme }) {
   return (
@@ -23,6 +24,7 @@ export default function Home({ theme, toggleTheme }) {
       <Projects />
       <Contact />
       <Chatbot />
+      <Footer />
     </>
   )
 }
