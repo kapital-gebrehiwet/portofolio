@@ -9,9 +9,7 @@ export default function About() {
   ]
 
   const stats = [
-    { number: '120 +', label: 'Completed Projects' },
-    { number: '95 %', label: 'Client satisfaction' },
-    { number: '10 +', label: 'Years of experience' },
+    { number: '10 +', label: 'Completed Projects' },
   ]
 
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 })
@@ -37,8 +35,7 @@ export default function About() {
           <div className={`${styles.aboutText} ${isVisible ? styles.animateIn : ''}`}>
             <h2 className={styles.sectionTitle}>About me</h2>
             <p className={styles.aboutDescription}>
-              I started my software journey from photography. Through that, I learned to love the process of creating from scratch. Since then, this has led me to software development as a fulfilling my love for learning and building things.
-            </p>
+            I am a Software Engineering student at Mekelle University with a strong interest in technology and digital transformation. I am highly motivated by learning, problem-solving, and building solutions that create real-world impact. I aspire to grow as a tech professional by continuously developing my skills and contributing to innovative digital systems.</p>
             <div className={styles.stats}>
               {stats.map((stat, index) => (
                 <div 
