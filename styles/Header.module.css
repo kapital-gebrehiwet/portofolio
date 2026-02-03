@@ -1,0 +1,129 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(10, 14, 39, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideDown 0.6s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.navLink {
+  color: #ffffff;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  color: #ff6b35;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff6b35;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.themeToggleButton {
+  margin-left: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.themeToggleButton:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: #ff6b35;
+  transform: translateY(-1px);
+}
+
+:global(body.light) .header {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+:global(body.light) .logo,
+:global(body.light) .navLink {
+  color: #1a1f3a;
+}
+
+:global(body.light) .navLink::after {
+  background-color: #ff6b35;
+}
+
+:global(body.light) .themeToggleButton {
+  color: #1a1f3a;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .themeToggleButton {
+    margin-left: 0.75rem;
+    width: 36px;
+    height: 36px;
+  }
+}

@@ -1,0 +1,186 @@
+.contact {
+  padding: 5rem 0;
+  background-color: #0a0e27;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Used by JS to trigger animation states (CSS Modules needs this class declared) */
+.animateIn {}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contactContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.contactText {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.contactText.animateIn {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideInLeft 0.8s ease;
+}
+
+.contactText.animateIn .contactTitle {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.contactText.animateIn .contactSubtitle {
+  animation: fadeInUp 0.6s ease 0.4s both;
+}
+
+.contactTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.contactSubtitle {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #ff6b35;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contactFormWrapper {
+  width: 100%;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.contactFormWrapper.animateIn {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideInRight 0.8s ease;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formInput {
+  padding: 1rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.formInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #ff6b35;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.btnPrimary {
+  background-color: #ff6b35;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #ff6b35;
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  background-color: #ff8555;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+  }
+  50% {
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+  }
+}
+
+@media (max-width: 968px) {
+  .contactContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contactTitle {
+    font-size: 2.5rem;
+  }
+  
+  .contactSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactTitle {
+    font-size: 2rem;
+  }
+  
+  .contactSubtitle {
+    font-size: 1.2rem;
+  }
+}

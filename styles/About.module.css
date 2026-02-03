@@ -1,0 +1,203 @@
+.about {
+  padding: 5rem 0;
+  background-color: #0a0e27;
+}
+
+/* Used by JS to trigger animation states (CSS Modules needs this class declared) */
+.animateIn {}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.services.animateIn .serviceItem {
+  animation: slideInLeft 0.6s ease both;
+}
+
+.serviceItem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.serviceItem:hover {
+  background-color: rgba(255, 107, 53, 0.1);
+  border-color: #ff6b35;
+  transform: translateX(10px);
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.serviceIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff6b35, #ff8c55);
+  border-radius: 12px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.serviceItem:hover .serviceIcon {
+  transform: rotate(5deg) scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+.serviceItem h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.aboutText {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.aboutText.animateIn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.aboutText.animateIn .sectionTitle {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.aboutText.animateIn .aboutDescription {
+  animation: fadeInUp 0.6s ease 0.4s both;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.aboutDescription {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stats .statItem {
+  animation: fadeInUp 0.6s ease both;
+}
+
+.statItem {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.statItem:hover {
+  background-color: rgba(255, 107, 53, 0.1);
+  border-color: #ff6b35;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6b35;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 968px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .statNumber {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .aboutDescription {
+    font-size: 1rem;
+  }
+}
