@@ -27,7 +27,7 @@ export default function Contact() {
         <div className={styles.contactContent}>
           <div className={`${styles.contactText} ${isVisible ? styles.animateIn : ''}`}>
             <h2 className={styles.contactTitle}>Have a project?</h2>
-            <h3 className={styles.contactSubtitle}>Let's talk!</h3>
+            <h3 className={styles.contactSubtitle}>Let&apos;s talk!</h3>
           </div>
           <div className={`${styles.contactFormWrapper} ${isVisible ? styles.animateIn : ''}`}>
             <form className={styles.contactForm} onSubmit={handleSubmit}>

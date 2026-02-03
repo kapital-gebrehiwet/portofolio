@@ -22,7 +22,7 @@ export default function Hero() {
         <div className={styles.heroContent}>
           <div className={`${styles.heroText} ${isVisible ? styles.animateIn : ''}`}>
             <h1 className={styles.heroGreeting}>Hello.</h1>
-            <h2 className={styles.heroName}>I'm Kapital</h2>
+            <h2 className={styles.heroName}>I&apos;m Kapital</h2>
             <h3 className={styles.heroTitle}>Software Developer</h3>
             <div className={styles.heroButtons}>
               <button className={styles.btnPrimary} onClick={(e) => scrollToSection(e, 'contacts')}>
