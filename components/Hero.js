@@ -24,6 +24,10 @@ export default function Hero() {
             <h1 className={styles.heroGreeting}>Hello.</h1>
             <h2 className={styles.heroName}>I&apos;m Kapital</h2>
             <h3 className={styles.heroTitle}>Software Developer</h3>
+            <p className={styles.heroDescription}>
+              I design and build scalable web applications with a focus on clean architecture, performance, and a great
+              user experience.
+            </p>
             <div className={styles.heroButtons}>
               <button className={styles.btnPrimary} onClick={(e) => scrollToSection(e, 'contacts')}>
                 Get a project

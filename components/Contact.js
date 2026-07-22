@@ -4,14 +4,35 @@ import styles from '../styles/Contact.module.css'
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! I will get back to you soon.')
-    setFormData({ name: '', email: '' })
+    if (isSubmitting) return
+
+    setIsSubmitting(true)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      alert('Thank you for your message! I will get back to you soon.')
+      setFormData({ name: '', email: '' })
+    } catch (error) {
+      console.error('Error sending message:', error)
+      alert('Sorry, something went wrong. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e) => {
@@ -53,8 +74,8 @@ export default function Contact() {
                   required
                 />
               </div>
-              <button type="submit" className={styles.btnPrimary}>
-                Send Message
+              <button type="submit" className={styles.btnPrimary} disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>

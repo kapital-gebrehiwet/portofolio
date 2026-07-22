@@ -25,17 +25,15 @@ export default function Chatbot() {
     skills: [
       "Kapital specializes in: HTML5, CSS, JavaScript, Node.js, React, Git, and GitHub. He's skilled in both frontend and backend development.",
     ],
-    experience: [
-      "Kapital has 10+ years of experience in software development, with 120+ completed projects and 95% client satisfaction rate.",
-    ],
+   
     projects: [
-      "Kapital has worked on many projects including: Film Site, Sela Stock Management, Streaming apps, Habit Tracker, Redux Toolkit Shopping Cart, AI-Powered Resume Analyzer, Campus Event Organizer, Flutter To-Do App, and many more. You can see all projects in the Projects section!",
+      "Kapital has worked on more than 10 projects including: Film Site, Sela Stock Management, Streaming apps, Habit Tracker, Redux Toolkit Shopping Cart, AI-Powered Resume Analyzer, Campus Event Organizer, Flutter To-Do App, and many more. You can see all projects in the Projects section!",
     ],
     services: [
       "Kapital offers: Website Development, App Development, and Website Hosting services.",
     ],
     background: [
-      "Kapital started his software journey from photography. Through that, he learned to love the process of creating from scratch. This led him to software development as a way to fulfill his love for learning and building things.",
+      "I am a Software Engineering student at Mekelle University with a strong interest in technology and digital transformation. I am highly motivated by learning, problem-solving, and building solutions that create real-world impact. I aspire to grow as a tech professional by continuously developing my skills and contributing to innovative digital systems.",
     ],
     contact: [
       "You can contact Kapital through the Contact section on this website, or check out his GitHub profile to see his work!",
@@ -60,6 +58,33 @@ export default function Chatbot() {
 
   const findResponse = (userInput) => {
     const lowerInput = userInput.toLowerCase().trim()
+
+    // Check if user is asking about another person (not Kapital)
+    const kapitalNames = ['kapital', 'gebrehiwet']
+    const genericWords = ['this', 'that', 'he', 'him', 'you', 'they', 'them', 'it']
+    const otherPersonPhrases = [
+      /who\s+is\s+(.+?)(?:\?|\.|$)/i,
+      /who's\s+(.+?)(?:\?|\.|$)/i,
+      /tell\s+me\s+about\s+(.+?)(?:\?|\.|$)/i,
+      /information\s+about\s+(.+?)(?:\?|\.|$)/i,
+      /details\s+about\s+(.+?)(?:\?|\.|$)/i,
+      /what\s+about\s+(.+?)(?:\?|\.|$)/i,
+      /do\s+you\s+know\s+(.+?)(?:\?|\.|$)/i,
+      /know\s+anything\s+about\s+(.+?)(?:\?|\.|$)/i,
+    ]
+    const noInfoAboutOthers = "I have no idea about that person's details. I only have information about Kapital Gebrehiwet — ask me about his skills, projects, experience, or background!"
+
+    for (const pattern of otherPersonPhrases) {
+      const match = lowerInput.match(pattern)
+      if (match) {
+        const namePart = match[1].trim().toLowerCase()
+        const isAboutKapital = kapitalNames.some((k) => namePart.includes(k))
+        const isGeneric = genericWords.includes(namePart) || namePart.length < 2
+        if (namePart && !isAboutKapital && !isGeneric) {
+          return noInfoAboutOthers
+        }
+      }
+    }
 
     // Check for keywords
     for (const [category, keywords] of Object.entries(keywordMap)) {
